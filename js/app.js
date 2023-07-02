@@ -6,7 +6,7 @@ const cantidadCarrito = document.getElementById("cantidadCarrito");
 
 //carrito
 
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const getProducts = async () =>{
     const response = await fetch("data.json");
@@ -57,10 +57,12 @@ const getProducts = async () =>{
 
 getProducts();
 
+//set item
 const saveLocal = () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
+//get item
 
 
 
